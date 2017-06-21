@@ -11,7 +11,7 @@ Let’s start with an example.
 
  strange? Why the handler on ```<div>``` runs if the actual click was on ```<em>```?
  
- ### Bubbling
+ # Bubbling
  
  Let’s say, we have 3 nested elements FORM > DIV > P with a handler on each of them:
  
@@ -45,7 +45,7 @@ For instance, a focus event does not bubble.
 * event.target – is the “target” element that initiated the event, it doesn’t change through the bubbling process.
 * this – is the “current” element, the one that has a currently running handler on it.
  
- ### Stop bubbling
+ # Stop bubbling
   
   A bubbling event goes from the target element straight up. Normally it goes upwards till ```<html>```, and then to ```document object```, and some events even reach ```window```
   
