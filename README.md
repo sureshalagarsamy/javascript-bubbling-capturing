@@ -60,4 +60,59 @@ The method for stop bubbling is ```event.stopPropagation()```.
 https://output.jsbin.com/guzebow
   
   
+# Capturing
+
+There’s another event processing called “capturing”. It is rarely used in real code.
+
+
+```
+Normally it is invisible to us.
+```
+
+* Capturing phase – the event goes down to the element.
+* Target phase – the event reached the target element.
+* Bubbling phase – the event bubbles up from the element.
+
+Here’s the picture of a click on <td> inside a table, taken from the specification:
+
+![image](https://user-images.githubusercontent.com/6780840/27431241-6e8691a2-5769-11e7-9b2d-31f5148279e4.png)
+
+
+Let’s see it in action:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+  body * {
+    margin: 9px;
+    border: 1px solid #FF0000;
+  }
+  </style>
+</head>
+<body>
+
+<form>FORM
+  <div>DIV
+    <p>P</p>
+  </div>
+</form>
+
+<script>
+  for(let elem of document.querySelectorAll('*')) {
+    elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
+    elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+  }
+</script>
+</body>
+</html>
+```
+![image](https://user-images.githubusercontent.com/6780840/27431486-56668c16-576a-11e7-9517-b2e56d8b62a8.png)
+
+
+https://output.jsbin.com/zoxunoz
   
